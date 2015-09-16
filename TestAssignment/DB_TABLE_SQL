@@ -1,0 +1,17 @@
+CREATE TABLE "CONTACTS"
+(
+  "NAME" character varying,
+  "EMAIL" character varying NOT NULL,
+  "PROFESSION" character varying,
+  "SUBPROFESSION" character varying,
+  "ID" serial NOT NULL,
+  CONSTRAINT "CONTACTS_pkey" PRIMARY KEY ("EMAIL")
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "CONTACTS"
+  OWNER TO postgres;
+GRANT ALL ON TABLE "CONTACTS" TO postgres;
+GRANT ALL ON TABLE "CONTACTS" TO public;
+GRANT SELECT("EMAIL"), UPDATE("EMAIL"), INSERT("EMAIL"), REFERENCES("EMAIL") ON "CONTACTS" TO public;
